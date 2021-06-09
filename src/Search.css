@@ -1,0 +1,18 @@
+.search-and-result-container {
+  margin-top: 15%;
+}
+
+.formstyle {
+  margin: 8% 0;
+  text-align: center;
+}
+
+.search-button:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 767.6px) {
+  .textfield-style {
+    width: 50%;
+  }
+}
