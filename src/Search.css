@@ -1,10 +1,23 @@
 .search-and-result-container {
   margin-top: 15%;
+  text-align: center;
 }
 
 .formstyle {
   margin: 8% 0;
   text-align: center;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .search-button:hover {
