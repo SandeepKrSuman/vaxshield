@@ -44,7 +44,6 @@ function Search(){
               setLoading(false);
             });
             setInputTxt("");
-            console.log(apiData);
         }
         else{
             setLoading(false);
@@ -87,12 +86,13 @@ function Search(){
 
             <div className={classes.root}>
               <Grid container spacing={3}>
-              {apiData.centers.map(center => {
+              {apiData.centers.map((center, index) => {
                 return (
                   <CenterCard 
-                  key = {center}
+                  usekey = {index}
+                  key = {index}
                   name = {center.name}
-                  address = {`${center.address}, ${center.block_name}, ${center.district_name}, ${center.state_name}, ${center.pincode}`}
+                  address = {`${center.address}${center.block_name === "Not Applicable" ? '' : ', '+center.block_name}, ${center.district_name}, ${center.state_name}, ${center.pincode}`}
                   paid = {center.fee_type === "Paid" ? true : false}
                   available = {handleAvailablity(center.sessions)}
                   slotinfo = {center.sessions}

@@ -42,7 +42,7 @@ export default function CenterCard(props) {
   };
 
   return (
-    <Grid item xs={12} md={6}>
+    <Grid item xs={12} md={4} key = {props.usekey}>
       <Card className={classes.root}>
         <CardHeader
           title={props.name}
@@ -70,10 +70,11 @@ export default function CenterCard(props) {
           <CardContent>
             <div className={classes.root1}>
               <Grid container spacing={3}>
-                {props.slotinfo.map(session => {
+                {props.slotinfo.map((session,index) => {
                   return (
                     <SlotCard 
-                      key = {session}
+                      usekey = {index}
+                      key = {index}
                       slotdate = {session.date}
                       vaccine = {session.vaccine}
                       age = {`Age: ${session.min_age_limit}+`}
