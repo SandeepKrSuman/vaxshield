@@ -1,11 +1,21 @@
 import React, {useState} from "react";
+import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import Grid from '@material-ui/core/Grid';
+import CenterCard from "./CenterCard";
 
 import "./Search.css";
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+}));
+
 function Search(){
+    const classes = useStyles();
 
     const [display, setDisplay] = useState(false);
     const [inputTxt, setInputTxt] = useState("");
@@ -43,6 +53,17 @@ function Search(){
         setDisplay(true);
       }
 
+      function handleAvailablity(sessions){
+        for(let i = 0; i < sessions.length; i++)
+        {
+          if(sessions[i].available_capacity > 0)
+          {
+            return true;
+          }
+        }
+        return false;
+      }
+
       if(display && apiData && !apiData.error && apiData.centers.length>0){
         return (
           <div className="search-and-result-container">
@@ -63,6 +84,24 @@ function Search(){
                 }}
               />
             </form>
+
+            <div className={classes.root}>
+              <Grid container spacing={3}>
+              {apiData.centers.map(center => {
+                return (
+                  <CenterCard 
+                  key = {center}
+                  name = {center.name}
+                  address = {`${center.address}, ${center.block_name}, ${center.district_name}, ${center.state_name}, ${center.pincode}`}
+                  paid = {center.fee_type === "Paid" ? true : false}
+                  available = {handleAvailablity(center.sessions)}
+                  slotinfo = {center.sessions}
+                />
+                );
+              })}
+              </Grid>
+            </div>
+
           </div>
         
         );
