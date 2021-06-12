@@ -84,7 +84,9 @@ function Search(){
               />
             </form>
 
-            <div className={classes.root}>
+            { isLoading ? <img className="spinner" src="preloader.gif" alt="Loading..." /> :
+
+              <div className={classes.root}>
               <Grid container spacing={3}>
               {apiData.centers.map((center, index) => {
                 return (
@@ -102,6 +104,8 @@ function Search(){
               </Grid>
             </div>
 
+            }
+
           </div>
         
         );
@@ -109,7 +113,7 @@ function Search(){
 
       else{
         return (
-          <div className="search-and-result-container">
+          <div className="search-and-result-container withoutresult">
             <form className="formstyle" noValidate autoComplete="off" onSubmit={handleSubmit}>
               <TextField 
                 className="textfield-style"
@@ -128,7 +132,7 @@ function Search(){
                 }}
               />
             </form>
-            {isLoading ? <img src="preloader.gif" alt="Loading..." /> : null}
+            {isLoading ? <img className="spinner" src="preloader.gif" alt="Loading..." /> : null}
           </div>
         
         );

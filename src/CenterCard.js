@@ -48,7 +48,7 @@ export default function CenterCard(props) {
   };
 
   return (
-    <Grid item xs={12} md={4} key = {props.usekey}>
+    <Grid item xs={12} sm={6} md={4} key = {props.usekey}>
       <Card className={classes.root}>
         <CardHeader
           title={props.name}
@@ -94,6 +94,7 @@ export default function CenterCard(props) {
                       vaccine = {session.vaccine}
                       age = {`Age: ${session.min_age_limit}+`}
                       available = {`Available: ${session.available_capacity}`}
+                      booked = {session.available_capacity === 0 ? true: false}
                       dose1 = {session.available_capacity_dose1}
                       dose2 = {session.available_capacity_dose2}
                     />

@@ -72,6 +72,7 @@ export default function SlotModal(props) {
                       vaccine = {session.vaccine}
                       age = {`Age: ${session.min_age_limit}+`}
                       available = {`Available: ${session.available_capacity}`}
+                      booked = {session.available_capacity === 0 ? true: false}
                       dose1 = {session.available_capacity_dose1}
                       dose2 = {session.available_capacity_dose2}
                     />
@@ -81,11 +82,8 @@ export default function SlotModal(props) {
             </div>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={handleClose} color="primary">
-            Subscribe
+          <Button onClick={handleClose}>
+            Close
           </Button>
         </DialogActions>
       </Dialog>

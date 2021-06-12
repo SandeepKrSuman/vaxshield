@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+.spinner {
+  margin-top: 3%;
+}
+
 .formstyle {
   margin: 8% 0;
   text-align: center;
@@ -27,5 +31,15 @@ input[type="number"] {
 @media (min-width: 767.6px) {
   .textfield-style {
     width: 50%;
+  }
+}
+
+@media (max-width: 767.5px) {
+  .withoutresult {
+    margin-top: 40%;
+    text-align: center;
+  }
+  .spinner {
+    margin-top: 8%;
   }
 }

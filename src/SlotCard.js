@@ -26,6 +26,9 @@ export default function SlotCard(props) {
     const date = `${dt[0]} ${months[mindex]}, ${dt[2]}`;
     return date;
   }
+
+  const stylebooked = {backgroundColor: '#f44336', color: "#ffffff"};
+  const styleavailable = {color: '#4caf50'};
   
   return (
     <Grid item xs={6} key={props.usekey}>
@@ -38,14 +41,15 @@ export default function SlotCard(props) {
               {props.vaccine}
             </Typography>
             <Box component="div" display="inline" p={1} m={1} color="error.main">[{props.age}]</Box>
-            <Typography variant="body1" component="p" style={{color: "#4caf50"}}>
-              {props.available}
+            <br /><br />
+            <Typography variant="body1" component="p" style = {props.booked ? stylebooked : styleavailable}>
+              {props.booked ? 'BOOKED' : props.available}
             </Typography>
-            <Typography variant="body2" component="p">
+            {!props.booked ? <Typography variant="body2" component="p">
               D1: {props.dose1}
               <br />
               D2: {props.dose2}
-            </Typography>
+            </Typography> : null}
           </CardContent>
         </Card>
     </Grid>
