@@ -5,6 +5,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Grid from '@material-ui/core/Grid';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
+import Typography from '@material-ui/core/Typography';
 import CenterCard from "./CenterCard";
 
 import "./Search.css";
@@ -24,6 +25,7 @@ function Search(){
     const [inputTxt, setInputTxt] = useState("");
     const [apiData, setApiData] = useState(null);
     const [isLoading, setLoading] = useState(false);
+    const [isError, setError] = useState(false);
     
     const url = 'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByPin?pincode=';
 
@@ -32,6 +34,7 @@ function Search(){
     }
 
     function handleSubmit(event){
+        setError(false);
         setLoading(true);
         const date = new Date();
         const d = date.getDate();
@@ -44,6 +47,7 @@ function Search(){
             .then(data => {setApiData(data); setLoading(false);})
             .catch((error) => {
               console.log(error);
+              setError(true);
               setLoading(false);
             });
             setInputTxt("");
@@ -66,7 +70,65 @@ function Search(){
         return false;
       }
 
-      if(display && apiData && !apiData.error && apiData.centers.length>0){
+      if(display && apiData && !apiData.error && apiData.centers.length === 0)
+      {
+        return (
+          <div className="search-and-result-container withoutresult">
+            <form className="formstyle" noValidate autoComplete="off" onSubmit={handleSubmit}>
+              <TextField 
+                className="textfield-style"
+                onChange={handleChange}
+                value={inputTxt}
+                type="number"
+                id="outlined-basic" 
+                label="Enter your PIN" 
+                variant="outlined" 
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <SearchIcon className="search-button" onClick={handleSubmit} />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </form>
+            {isLoading ? <img className="spinner" src="preloader.gif" alt="Loading..." /> : 
+            <Typography variant="h6" component="h3"> No Vaccination center is available for booking. </Typography>}
+          </div>
+        
+        );
+      }
+
+      else if(isError || (apiData && apiData.error))
+      {
+        return (
+          <div className="search-and-result-container withoutresult">
+            <form className="formstyle" noValidate autoComplete="off" onSubmit={handleSubmit}>
+              <TextField 
+                className="textfield-style"
+                onChange={handleChange}
+                value={inputTxt}
+                type="number"
+                id="outlined-basic" 
+                label="Enter your PIN" 
+                variant="outlined" 
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <SearchIcon className="search-button" onClick={handleSubmit} />
+                    </InputAdornment>
+                  ),
+                }}
+              />
+            </form>
+            {isLoading ? <img className="spinner" src="preloader.gif" alt="Loading..." /> : 
+            <Typography variant="h6" component="h3"> :( Something went wrong. Please check your PIN or try again later. </Typography>}
+          </div>
+        
+        );
+      }
+
+      else if(display && apiData && !apiData.error && apiData.centers.length>0){
         return (
           <div className="search-and-result-container">
             <form className="formstyle" noValidate autoComplete="off" onSubmit={handleSubmit}>
