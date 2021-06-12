@@ -18,7 +18,6 @@ import Zoom from '@material-ui/core/Zoom';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import SlotCard from "./SlotCard";
 import SlotModal from "./SlotModal";
-import "./CenterCard.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
