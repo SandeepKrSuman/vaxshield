@@ -9,10 +9,16 @@ import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import { FaCheckCircle } from 'react-icons/fa';
 import { BiRupee } from 'react-icons/bi';
 import { BsXCircleFill } from 'react-icons/bs';
+import Tooltip from '@material-ui/core/Tooltip';
+import Zoom from '@material-ui/core/Zoom';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import SlotCard from "./SlotCard";
+import SlotModal from "./SlotModal";
+import "./CenterCard.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,22 +55,31 @@ export default function CenterCard(props) {
           subheader={props.address}
         />
         <CardActions disableSpacing>
-          <IconButton aria-label="slots may be available">
-            {props.available ? <FaCheckCircle style={{color:"#64dd17"}} /> : <BsXCircleFill style={{color:"#f44336"}} />}
-          </IconButton>
-          {props.paid ? <IconButton aria-label="Paid">
+          <Tooltip TransitionComponent={Zoom} title={props.available ? 'Slots Available' : 'Slot Unavailable'}>
+            <IconButton aria-label="slots availability">
+              {props.available ? <FaCheckCircle style={{color:"#64dd17"}} /> : <BsXCircleFill style={{color:"#f44336"}} />}
+            </IconButton>
+          </Tooltip>
+          {props.paid ? <Tooltip TransitionComponent={Zoom} title={props.paid ? 'PAID' : null}><IconButton aria-label="Paid">
             <BiRupee style={{color:"#f44336"}} />
-          </IconButton> : null}
-          <IconButton
-            className={clsx(classes.expand, {
-              [classes.expandOpen]: expanded,
-            })}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="view slots"
-          >
-            <ExpandMoreIcon />
-          </IconButton>
+          </IconButton></Tooltip> : null}
+          {useMediaQuery('(max-width:767.5px)') ? 
+          <Tooltip TransitionComponent={Zoom} title='View Slots'>
+            <IconButton
+              className={clsx(classes.expand, {
+                [classes.expandOpen]: expanded,
+              })}
+              onClick={handleExpandClick}
+              aria-expanded={expanded}
+              aria-label="view slots"
+            >
+              <ExpandMoreIcon />
+            </IconButton>
+          </Tooltip> : 
+          <SlotModal 
+          slotinfo = {props.slotinfo}
+          modaltitle = {props.name}
+          />}
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
@@ -85,6 +100,9 @@ export default function CenterCard(props) {
                   );
                 })}
               </Grid>
+              <IconButton onClick={handleExpandClick}>
+                <ExpandLessIcon />
+              </IconButton> 
             </div>
           </CardContent>
         </Collapse>

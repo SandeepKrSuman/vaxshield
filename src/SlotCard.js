@@ -31,14 +31,14 @@ export default function SlotCard(props) {
     <Grid item xs={6} key={props.usekey}>
         <Card className={classes.root}>
           <CardContent>
-            <Typography variant="h5" component="h2">
+            <Typography variant="body1" component="p">
               {handleDate(props.slotdate)}
             </Typography>
-            <Typography className={classes.pos} color="textSecondary">
+            <Typography className={classes.pos} variant="body2" component="p" color="textSecondary">
               {props.vaccine}
             </Typography>
             <Box component="div" display="inline" p={1} m={1} color="error.main">[{props.age}]</Box>
-            <Typography variant="h6" component="h6" style={{color: "#4caf50"}}>
+            <Typography variant="body1" component="p" style={{color: "#4caf50"}}>
               {props.available}
             </Typography>
             <Typography variant="body2" component="p">
