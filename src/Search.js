@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import CenterCard from "./CenterCard";
 
 import "./Search.css";
+import Footer from "./Footer";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -106,6 +107,7 @@ function Search(){
 
             }
 
+            {!isLoading ? <Footer /> : null}
           </div>
         
         );
