@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Grid from '@material-ui/core/Grid';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import CenterCard from "./CenterCard";
 
 import "./Search.css";
@@ -17,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Search(){
     const classes = useStyles();
+    const sp = useMediaQuery('(max-width:767.5px)') ? 1 : 3;
 
     const [display, setDisplay] = useState(false);
     const [inputTxt, setInputTxt] = useState("");
@@ -72,6 +74,7 @@ function Search(){
                 className="textfield-style"
                 onChange={handleChange}
                 value={inputTxt}
+                type="number"
                 id="outlined-basic" 
                 label="Enter your PIN" 
                 variant="outlined" 
@@ -88,7 +91,7 @@ function Search(){
             { isLoading ? <img className="spinner" src="preloader.gif" alt="Loading..." /> :
 
               <div className={classes.root}>
-              <Grid container spacing={3}>
+              <Grid container spacing={sp}>
               {apiData.centers.map((center, index) => {
                 return (
                   <CenterCard 
