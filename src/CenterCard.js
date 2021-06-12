@@ -21,7 +21,7 @@ import SlotModal from "./SlotModal";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    maxWidth: '100%',
   },
   root1: {
     flexGrow: 1,
