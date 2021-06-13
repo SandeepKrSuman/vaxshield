@@ -65,6 +65,7 @@ export default function CenterCard(props) {
           {useMediaQuery('(max-width:767.5px)') ? 
           <Tooltip TransitionComponent={Zoom} title='View Slots'>
             <IconButton
+              autoFocus={props.usekey === 0 ? true : false}
               className={clsx(classes.expand, {
                 [classes.expandOpen]: expanded,
               })}
