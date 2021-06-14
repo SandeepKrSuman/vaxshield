@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# 💉 VaxShield
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">Track COVID-19 vaccine slot availability by entering your PIN.</p>
 
-## Available Scripts
+![vaxshield](/public/vaxshield_main.gif)
 
-In the project directory, you can run:
+---
 
-### `yarn start`
+### Tech Stack:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Built on [ReactJS](https://reactjs.org/) using [create-react-app](https://github.com/facebook/create-react-app)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<p align="center">
+     <img atl="React" src="https://img.shields.io/badge/-react-black?logo=react&style=for-the-badge">
+     <img alt="material-ui" src="https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white">
+     <img alt="React-Bootstrap" src="https://img.shields.io/badge/-react--bootstrap-563D7C?style=for-the-badge">
+     <img alt="JavaScript" src="https://img.shields.io/badge/-javascript-yellow?logo=javascript&logoColor=white&style=for-the-badge">
+     <img alt="css" src="https://img.shields.io/badge/-css3-blue?logo=css3&style=for-the-badge">
+     <img alt="html" src="https://img.shields.io/badge/-html5-red?logo=html5&logoColor=white&style=for-the-badge">
+</p>
+  
+---
+  
+### Mobile view:  
+![vaxshield_mob](/public/vaxshield_mob.gif)
+  
+  <br /><br />
+### Key to features:  
+![key to feature](/public/keytofeature.png)
 
-### `yarn test`
+- Red Cross ❌ - Slot is unavailable.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Green tick ✅ - Slot is available.
 
-### `yarn build`
+- Rupee symbol in red - PAID slot.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- No Rupee symbol - FREE slot.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  <br /><br />
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### API:
 
-### `yarn eject`
+[API Setu](https://apisetu.gov.in/public/marketplace/api/cowin) open API
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Official slot booking web app:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Cowin](https://www.cowin.gov.in/home)
