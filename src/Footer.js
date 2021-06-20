@@ -9,7 +9,7 @@ function Footer(){
     
             <div className="footdiv">
                 <a className="booklink" href="https://selfregistration.cowin.gov.in/" target="_blank" rel="noopener noreferrer"><Button variant="outlined">Book your appointment <SendIcon style={{marginLeft: '5px'}} /></Button></a>
-                <p className="developerDetail">Made with ❤ by <a className="devlink" href="https://www.linkedin.com/in/sandeepkrsuman/" target="_blank" rel="noopener noreferrer">SandeepKrSuman</a></p>
+                <p className="developerDetail">Made with ❤ by <a className="devlink" href="https://github.com/SandeepKrSuman" target="_blank" rel="noopener noreferrer">SandeepKrSuman</a></p>
             </div>
         </footer>
     );
